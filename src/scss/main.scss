@@ -65,6 +65,16 @@ video {
   border: 5px solid var(--white);
   border-bottom-color: var(--red);
   border-radius: 50%;
+  animation: Rotate 1s infinite linear;
+}
+
+@keyframes Rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .button {
@@ -76,6 +86,19 @@ video {
   border-radius: 5px;
   color: var(--white);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: Scale 1s infinite ease-in;
+}
+
+@keyframes Scale {
+  0% {
+    transform: scale(100%);
+  }
+  50% {
+    transform: scale(105%);
+  }
+  100% {
+    transform: scale(100%);
+  }
 }
 
 .background {
@@ -83,6 +106,16 @@ video {
   height: 200px;
   background-image: linear-gradient(45deg, var(--yellow), var(--light-blue));
   background-size: 200% 200%;
+  animation: Position 4s infinite linear alternate;
+}
+
+@keyframes Position {
+  from {
+    background-position: 100%;
+  }
+  to {
+    background-position: 0%;
+  }
 }
 
 .submit {
@@ -98,6 +131,18 @@ video {
 
 .submit-plane {
   width: 26px;
+  animation: Fly 1.5s infinite;
+}
+
+@keyframes Fly {
+  from {
+    transform: translate(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-60px) translateX(40px);
+    opacity: 0;
+  }
 }
 
 .pong {
@@ -114,10 +159,44 @@ video {
   width: 10px;
   height: 10px;
   background: var(--black);
+  animation: Ball 4s infinite linear alternate;
+}
+
+@keyframes Ball {
+  from {
+    transform: translateY(100px) translateX(270px);
+  }
+  to {
+    transform: translateY(-100px) translateX(-270px);
+  }
 }
 
 .pong-paddle {
   width: 10px;
   height: 80px;
   background: var(--black);
+}
+.pong-paddle:nth-child(1) {
+  animation: PaddleLeft 4s 14s infinite linear alternate;
+}
+.pong-paddle:nth-child(3) {
+  animation: PaddleRight 4s 7s infinite linear alternate;
+}
+
+@keyframes PaddleLeft {
+  from {
+    transform: translateY(100px);
+  }
+  to {
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes PaddleRight {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(100px);
+  }
 }
